@@ -1,0 +1,19 @@
+.navigation{
+  padding: 15px;
+  border-bottom: 1px solid #adb8bf;
+  .logo{
+    float: left;
+  }
+  .group-btn{
+    float: right;
+    .welcome,.btn{
+      float: left;
+      margin-right: 10px;
+    }
+    .btn{
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}

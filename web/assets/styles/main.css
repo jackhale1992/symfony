@@ -1,0 +1,12 @@
+.navigation {
+  padding: 15px;
+  border-bottom: 1px solid #adb8bf; }
+  .navigation .logo {
+    float: left; }
+  .navigation .group-btn {
+    float: right; }
+    .navigation .group-btn .welcome, .navigation .group-btn .btn {
+      float: left;
+      margin-right: 10px; }
+    .navigation .group-btn .btn:last-child {
+      margin-right: 0; }

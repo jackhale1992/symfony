@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h2>Profile</h2>
+        <div class="fos_user_user_show">
+            <p>Username: {{ user.username }}</p>
+            <p>Email: {{ user.email }}</p>
+            <a class="btn btn-success" href="{{ path('fos_user_profile_edit') }}">Update Profile</a>
+        </div>
+    </div>
+{% endblock %}

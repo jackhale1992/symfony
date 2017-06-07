@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% trans_default_domain 'FOSUserBundle' %}
+    <div class="container">
+        {% if is_granted("IS_AUTHENTICATED_FULLY") %}
+            <p>You are login! Go to <a href="{{ path ('fos_user_profile_show') }}">Profile</a></p>
+            {#{% redirect "http://goole.com" %}#}
+        {% else %}
+            <h2 style="text-align: center;">LOGIN FORM</h2>
+            {# src/Acme/SecurityBundle/Resources/views/Security/login.html.twig #}
+            <form action="{{ path('fos_user_security_check') }}" method="post" style="width: 500px;margin:auto;">
+                {% if csrf_token %}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input class="form-control" type="text" id="username" name="_username" value="{{ last_username }}" />
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input class="form-control" type="password" id="password" name="_password" />
+                </div>
+                {#
+                    If you want to control the URL the user is redirected to on success (more details below)
+                    <input type="hidden" name="_target_path" value="/account" />
+                #}
+                <a class="btn btn-primary" href="{{ hwi_oauth_login_url('facebook') }}">Login with Facebook</a>
+
+                <input class="btn btn-primary" type="submit" name="login" value="Login"/>
+                <a class="btn btn-primary" href="{{ path('fos_user_resetting_request') }}">Forgot Password</a>
+            </form>
+            {% if error %}
+                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,21 @@
+{# app/Resources/views/registration/register.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container">
+	    <div class="row">
+			{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+				<p>You are already logged in. Please logout before sign up. <a href="{{ path ('fos_user_security_logout') }}">Log out</a></p>
+			{% else %}
+	        <div class="register-wrap" style="width: 500px; margin: 0 auto 100px;">
+	        	<h2 style="text-align: center">Register Form</h2>
+                {% form_theme form 'bootstrap_3_layout.html.twig' %}
+				{{ form_start(form) }}
+					{{ form_widget(form) }}
+				    <button type="submit" class="btn btn-primary">Register</button>            
+				{{ form_end(form) }}
+		    </div>
+			{% endif %}
+	    </div>
+	</div>
+{% endblock %}
